@@ -42,7 +42,8 @@ CORE_APPS = [
 AUTH_USER_MODEL = 'account.User'
 
 APPLICATION_APPS = [
-    'djangoapps.account',
+    'apps.account',
+    'apps.api',
 ]
 
 THIRDPARTY_APPS = [
