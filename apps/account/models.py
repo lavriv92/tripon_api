@@ -1,9 +1,11 @@
 from django.db import models
+from django.db.models import signals
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
-
 from django.utils.translation import ugettext as _
+from tastypie.models import create_api_key
+
 
 class UserManager(BaseUserManager):
 
@@ -80,3 +82,6 @@ class PaymentPlan(models.Model):
 
     def __str__(self):
         return '{0}'.format(self.name)
+
+
+signals.post_save.connect(create_api_key, sender=User)
